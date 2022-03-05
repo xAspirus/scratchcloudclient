@@ -2,7 +2,7 @@
 
 ### Install
 ```sh
-pip install scratchcloudclient
+pip install scratchcloudclient-aspirus
 ```
 
 ### Example
