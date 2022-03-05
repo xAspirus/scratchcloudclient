@@ -127,4 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# My
 test.py
+pyproject.toml
+setup.cfg
+update.sh
