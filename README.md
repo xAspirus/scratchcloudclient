@@ -5,6 +5,15 @@
 pip install scratchcloudclient
 ```
 
+### Scratch CloudUtils library
+
+scratchcloudclient.CloudUtils provides functions to decode and encode strings
+into 2-digit decimal encoding, which can be used to transfer text in cloud
+variables. 
+
+This project includes all the CloudUtils functions
+[Scratch CloudUtils library](https://scratch.mit.edu/projects/655013932/)
+
 ### Example
 ```py
 from scratchcloudclient import ScratchSession
