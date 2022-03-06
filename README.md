@@ -2,7 +2,7 @@
 
 ### Install
 ```sh
-pip install scratchcloudclient-aspirus
+pip install scratchcloudclient
 ```
 
 ### Example
@@ -23,6 +23,11 @@ def on_cloud_update(connection):
 
 # Launches a thread which will run in background
 connection.on_cloud_update(on_cloud_update)
+
+# Set CLOUD_1 to 0
+connection.set_variable('CLOUD_1', '0')
 ```
+
+For more examples see [/examples](./examples/)
 
 Some of the code is taken from [scratchclient](https://github.com/cubeythecube/scratchclient)

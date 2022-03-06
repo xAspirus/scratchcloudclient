@@ -1,11 +1,9 @@
-import websocket
 import requests
 import json
 import re
 from getpass import *
 
-
-websocket.WebSocket.send_packet = lambda self, x: self.send(json.dumps(x) + '\n')
+from .CloudConnection import CloudConnection
 
 
 class ScratchSession:
@@ -66,5 +64,3 @@ class ScratchSession:
 	
 	def create_cloud_connection(self, project_id :str):
 		return CloudConnection(project_id, self)
-
-

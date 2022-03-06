@@ -3,6 +3,9 @@ import websocket
 import json
 
 
+websocket.WebSocket.send_packet = lambda self, x: self.send(json.dumps(x) + '\n')
+
+
 class CloudConnection:
 	def __init__(self, project_id, session):
 		self.session = session
@@ -33,7 +36,7 @@ class CloudConnection:
 
 
 
-	def set_variable(self, variable_name :str, value :int):
+	def set_variable(self, variable_name :str, value :str):
 		"""
 		variable_name should not start with cloud emoji
 		"""
