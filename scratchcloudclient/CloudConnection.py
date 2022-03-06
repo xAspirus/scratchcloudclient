@@ -40,6 +40,11 @@ class CloudConnection:
 		"""
 		variable_name should not start with cloud emoji
 		"""
+		if not value.isnumeric():
+			raise ValueError('cloud variable value cannot be non numeric')
+		elif len(value) > 256:
+			raise ValueError('cloud variable length cannot be greater than 256')
+		
 		self.ws.send_packet({
 			'method': 'set',
 			'user': self.session.username,

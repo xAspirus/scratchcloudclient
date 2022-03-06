@@ -12,7 +12,7 @@ def encode_str(in_str :str):
 	(Check CHAR_ORDER for order)
 	(Encoding function provided in Scratch Library)
 	"""
-	return ''.join(f'{1 + CHAR_ORDER.index(i)}:02' for i in in_str)
+	return ''.join(f'{1 + CHAR_ORDER.index(i):02}' for i in in_str)
 
 def decode_str(in_str :str):
 	"""
