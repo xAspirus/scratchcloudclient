@@ -1,6 +1,7 @@
 import threading
 import websocket
 import json
+import asyncio
 
 
 websocket.WebSocket.send_packet = lambda self, x: self.send(json.dumps(x) + '\n')
@@ -49,7 +50,7 @@ class CloudConnection:
 			'method': 'set',
 			'user': self.session.username,
 			'project_id': self.project_id,
-			'name': f'☁️ {variable_name}',
+			'name': f'{chr(9729)} {variable_name}',
 			'value': value
 		})
 
@@ -57,6 +58,12 @@ class CloudConnection:
 	def update(self):
 		""" Waits for variable updates for self.variables """
 		response = json.loads(self.ws.recv())
+		if response['method'] == 'set':
+			self.variables[response['name'][2:]] = response['value']
+
+	async def async_update(self):
+		response = await asyncio.get_event_loop().run_in_executor(None, self.ws.recv)
+		response = json.loads(response)
 		if response['method'] == 'set':
 			self.variables[response['name'][2:]] = response['value']
 
